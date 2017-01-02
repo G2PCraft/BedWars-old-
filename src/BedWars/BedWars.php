@@ -7,7 +7,7 @@
 /////////////////////////////////////
 namespace BedWars;
 
-# 2016  Professional BedWars PocketMine-MP Plugin By: Emre Yavuzyiğit(EmreTr1)
+# 2016  Professional BedWars PocketMine-MP Plugin By: Emre YavuzyiÄŸit(EmreTr1)
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
@@ -57,7 +57,7 @@ use pocketmine\utils\TextFormat as c;
 
 class BedWars extends PluginBase implements Listener{
 	
-	public $prefix = "§8[§4Bed§fWars§8]";
+	public $prefix = "Â§8[Â§4BedÂ§fWarsÂ§8]";
 	public $bedmode=0;
 	public $bm=0;
 	public $game = "";
@@ -69,10 +69,10 @@ class BedWars extends PluginBase implements Listener{
 
     public function onEnable(){
 	  $this->getServer()->getPluginManager()->registerEvents($this, $this);
-	  $this->getServer()->getLogger()->info("§8[==========================================]");
-	  $this->getServer()->getLogger()->info("§8[§cBed§fWars§4TR§8]§a Plugin aktifleştirildi");
-	  $this->getServer()->getLogger()->info("§8[§cBed§fWars§4TR§8]§e - plugin developer by §bEmreTr1");
-	  $this->getServer()->getLogger()->info("§8[==========================================]");
+	  $this->getServer()->getLogger()->info("Â§8[==========================================]");
+	  $this->getServer()->getLogger()->info("Â§8[Â§cBedÂ§fWarsÂ§4TRÂ§8]Â§a Plugin aktifleÅŸtirildi");
+	  $this->getServer()->getLogger()->info("Â§8[Â§cBedÂ§fWarsÂ§4TRÂ§8]Â§e - plugin developer by Â§bEmreTr1");
+	  $this->getServer()->getLogger()->info("Â§8[==========================================]");
           $this->saniye=0;
 	  $this->mode=0;
 	  $this->create=0;
@@ -153,21 +153,21 @@ class BedWars extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
         switch ($args[0]){
             case "help":
-            $sender->sendMessage("§6©=======§cBed§fWars§6(§ePAGE 1/1§6)=======@");
-            $sender->sendMessage("§6Tüm Komutlar:");
-            $sender->sendMessage("§d- /bw start :§e Oyunu Başlatır(Adminler İçin)");
-            $sender->sendMessage("§b- /bw join :§e BedWarsa Katılınılır.");
-            $sender->sendMessage(TextFormat::GOLD."- /bw lobby :" .TextFormat::YELLOW. "Lobbye İsinlar.");
-            $sender->sendMessage("§b- /bw create :§eOyun Kurar.");
-            $sender->sendMessage("§6©==================================©");
+            $sender->sendMessage("Â§6Â©=======Â§cBedÂ§fWarsÂ§6(Â§ePAGE 1/1Â§6)=======@");
+            $sender->sendMessage("Â§6TÃ¼m Komutlar:");
+            $sender->sendMessage("Â§d- /bw start :Â§e Oyunu BaÅŸlatÄ±r(Adminler Ä°Ã§in)");
+            $sender->sendMessage("Â§b- /bw join :Â§e BedWarsa KatÄ±lÄ±nÄ±lÄ±r.");
+            $sender->sendMessage(TextFormat::GOLD."- /bw lobby :" .TextFormat::YELLOW. "Lobbye Ä°sinlar.");
+            $sender->sendMessage("Â§b- /bw create :Â§eOyun Kurar.");
+            $sender->sendMessage("Â§6Â©==================================Â©");
             break;   
             case "start":
             $this->saniye=10;
             $this->jj=1;
-            $sender->sendMessage($this->prefix." §dOyun Başlatılıyor..");
+            $sender->sendMessage($this->prefix." Â§dOyun BaÅŸlatÄ±lÄ±yor..");
 			if($sender instanceof Player){
 			}else{
-			    $this->getServer()->getLogger()->warning("Sen Oyuncu değilsin.");
+			    $this->getServer()->getLogger()->warning("Sen Oyuncu deÄŸilsin.");
 			}
             break;
       case "join":
@@ -189,7 +189,7 @@ class BedWars extends PluginBase implements Listener{
 			$this->getServer()->loadLevel($map);
 		    }
 	    $sender->teleport($lobby);
-            $sender->sendMessage($this->prefix."§aOyun Katıldın!");
+            $sender->sendMessage($this->prefix."Â§aOyun KatÄ±ldÄ±n!");
             $this->inGames[$sender->getName()]=$game;
 	    $sender->getLevel()->addSound(new PopSound($sender));
 	    $sender->getLevel()->addParticle(new LargeExplodeParticle(new Position($sender->x, $sender->y, $sender->z)));
@@ -205,10 +205,10 @@ class BedWars extends PluginBase implements Listener{
            }
            $pn=$sender->getName();
            $teams=array(
-                   "§9[MAVI]",
-                   "§c[KIRMIZI]",
-                   "§e[SARI]",
-                   "§a[YESIL]"
+                   "Â§9[MAVI]",
+                   "Â§c[KIRMIZI]",
+                   "Â§e[SARI]",
+                   "Â§a[YESIL]"
                );
             $this->akk[$game]++;
             $r=$this->akk[$game];
@@ -217,7 +217,7 @@ class BedWars extends PluginBase implements Listener{
                 $this->akk[$game]=0;
             }
 		}else{
-		    $sender->sendMessage($this->prefix."§eKullanış: /bw join <oyunadı>");
+		    $sender->sendMessage($this->prefix."Â§eKullanÄ±ÅŸ: /bw join <oyunadÄ±>");
 	    }
             break;
             case "set":
@@ -236,17 +236,17 @@ class BedWars extends PluginBase implements Listener{
     $this->config->save();
 					$this->mode=1;
 					$this->create=1;
-					$sender->sendMessage($this->prefix."§aKurulum, Lobbyposunu seçmek için bir yere tıkla!");
+					$sender->sendMessage($this->prefix."Â§aKurulum, Lobbyposunu seÃ§mek iÃ§in bir yere tÄ±kla!");
 				}
 				 else if($this->bedmode==0 and (!$this->config->getNested("BedWars.$game.Settings.Beds")) and strtolower($args[1])=="bed" and (!empty($args[2]))){
 				 	$this->bedmode=1;
 				 	$this->bm=1;
-				 	$sender->sendMessage("$this->prefix §b$game icin Yataklar kurulmaya Hazir!");
-				 	$sender->sendMessage($this->prefix."§c Kirmizi Yatagi Sec!");
+				 	$sender->sendMessage("$this->prefix Â§b$game icin Yataklar kurulmaya Hazir!");
+				 	$sender->sendMessage($this->prefix."Â§c Kirmizi Yatagi Sec!");
 				 }
 				elseif(strtolower($args[1])=="spawner"){
                                     $sender->getInventory()->setItemInHand(Item::get(Item::SIGN));
-                                    $sender->sendMessage($this->prefix."}n§6[BILGI]\n§a Spawnerleri kurmak icin Spawner olacak bloklarin\n"
+                                    $sender->sendMessage($this->prefix."}nÂ§6[BILGI]\nÂ§a Spawnerleri kurmak icin Spawner olacak bloklarin\n"
                                             . "altina tabela konulmalidir.\n"
                                             . "Spawner Bronz ise;\n"
                                             . "BedWars\n"
@@ -273,16 +273,16 @@ class BedWars extends PluginBase implements Listener{
                                 $kills=$this->stats->getNested("BedWars_Stats.$name.Oldurmeler");
                                 $wins=$this->stats->getNested("BedWars_Stats.$name.Kazanmalar");
                                 $sender->sendMessage($this->prefix."\n"
-                                        . "§6--- �statistikler ---\n"
-                                        . "§dKazanmalar: $wins\n"
-                                        . "§eSkor: $skor\n"
-                                        . "§cOlumler: $deaths\n"
-                                        . "§aOldurmeler: $kills\n"
-                                        . "§6--- �statistikler ---\n");
+                                        . "Â§6--- Ýstatistikler ---\n"
+                                        . "Â§dKazanmalar: $wins\n"
+                                        . "Â§eSkor: $skor\n"
+                                        . "Â§cOlumler: $deaths\n"
+                                        . "Â§aOldurmeler: $kills\n"
+                                        . "Â§6--- Ýstatistikler ---\n");
 			}
                         break;
             default:
-                $sender->sendMessage($this->prefix."§Yardim icin: /bw help");
+                $sender->sendMessage($this->prefix."Â§Yardim icin: /bw help");
                 break;
         }
     }
@@ -309,16 +309,16 @@ class BedWars extends PluginBase implements Listener{
 		 $this->blueteampos=new Vector3($this->blueteampos["blueteampos_x"], $this->blueteampos["blueteampos_y"], $this->blueteampos["blueteampos_z"]);
 		$this->spectatorpos=new Vector3($this->spectatorpos["spectatorpos_x"], $this->spectatorpos["spectatorpos_y"], $this->spectatorpos["spectatorpos_z"]);
 			 		$dn=$p->getName();
-					 	if($p->getNameTag()=="§c[KIRMIZI]".$dn){
+					 	if($p->getNameTag()=="Â§c[KIRMIZI]".$dn){
 							$p->teleport($this->redteampos);
 						}
-						if($p->getNameTag()=="§9[MAVI]".$dn){
+						if($p->getNameTag()=="Â§9[MAVI]".$dn){
 							 $p->teleport($this->blueteampos);
 						}
-						if($p->getNameTag()=="§e[SARI]".$dn){
+						if($p->getNameTag()=="Â§e[SARI]".$dn){
 							 $p->teleport($this->yellowteampos);
 						}
-						if($p->getNameTag()=="§a[YESIL]".$dn){
+						if($p->getNameTag()=="Â§a[YESIL]".$dn){
 							 $p->teleport($this->greenteampos);
 						}
 		}
@@ -327,16 +327,16 @@ class BedWars extends PluginBase implements Listener{
         public function OnChat(PlayerChatEvent $event){
 		$p=$event->getPlayer();
 		if($p->getNameTag()==c::BLUE."[MAVI]".$p->getName()){
-			$event->setFormat("§8[� §9MAVI �8]§d %s");
+			$event->setFormat("Â§8[Â Â§9MAVI §8]Â§d %s");
 		}
                 if($p->getNameTag()==c::RED."[KIRMIZI]".$p->getName()){
-			$event->setFormat("§8[� §9MAVI �8]§d %s");
+			$event->setFormat("Â§8[Â Â§9MAVI §8]Â§d %s");
 		}
                 if($p->getNameTag()==c::YELLOW."[SARI]".$p->getName()){
-			$event->setFormat("§8[� §9MAVI �8]§d %s");
+			$event->setFormat("Â§8[Â Â§9MAVI §8]Â§d %s");
 		}
                 if($p->getNameTag()==c::GREEN."[YESIL]".$p->getName()){
-			$event->setFormat("§8[� §9MAVI �8]§d %s");
+			$event->setFormat("Â§8[Â Â§9MAVI §8]Â§d %s");
 		}
                 if(isset($this->inGames[$p->getName()])){
                     $event->setRecipients($p->getLevel()->getPlayers());
@@ -358,7 +358,7 @@ class BedWars extends PluginBase implements Listener{
                         if(count($this->players[$game])>0){
 			foreach($this->players[$game] as $pl){
 				$p=$this->getServer()->getPlayer($pl["id"]);
-				$p->sendMessage($this->prefix."§7" .$event->getPlayer()->getName(). " §8oyundan ayrildi.");
+				$p->sendMessage($this->prefix."Â§7" .$event->getPlayer()->getName(). " Â§8oyundan ayrildi.");
 			}
                     }
 		}
@@ -383,30 +383,30 @@ class BedWars extends PluginBase implements Listener{
 				    $this->config->setNested("BedWars.$game.Settings.Beds.Red", $pos);
 				    $this->config->save();
 				    $this->bm++;
-				    $player->sendMessage($this->prefix."§cKirmizi Yatak Secildi!");
-				    $player->sendMessage($this->prefix."§aYesil Yatagi Sec!");
+				    $player->sendMessage($this->prefix."Â§cKirmizi Yatak Secildi!");
+				    $player->sendMessage($this->prefix."Â§aYesil Yatagi Sec!");
 				    break;
                                 case 2:
 				    $this->config->setNested("BedWars.$game.Settings.Beds.Green", $pos);
 				    $this->config->save();
 				    $this->bm++;
-				    $player->sendMessage($this->prefix."§aYesil Yatak Secildi!");
-				    $player->sendMessage($this->prefix."§eSari Yatagi Sec!");
+				    $player->sendMessage($this->prefix."Â§aYesil Yatak Secildi!");
+				    $player->sendMessage($this->prefix."Â§eSari Yatagi Sec!");
 				    break;
 			        case 3:
 				    $this->config->setNested("BedWars.$game.Settings.Beds.Yellow", $pos);
 				    $this->config->save();
 				    $this->bm++;
-				    $player->sendMessage($this->prefix."§eSari Yatak Secildi!");
-				    $player->sendMessage($this->prefix."§9Mavi Yatagi Sec!");
+				    $player->sendMessage($this->prefix."Â§eSari Yatak Secildi!");
+				    $player->sendMessage($this->prefix."Â§9Mavi Yatagi Sec!");
 				    break;
 				case 4:
 				    $this->config->setNested("BedWars.$game.Settings.Beds.Blue", $pos);
 				    $this->config->save();
 				    $this->bm=0;
 				    $this->bedmode=0;
-				    $player->sendMessage($this->prefix."§9Mavi Yatak Secildi!");
-				    $player->sendMessage($this->prefix."§6KURULUM TAMAMLANDİ.İYİ EYLENCELER...");
+				    $player->sendMessage($this->prefix."Â§9Mavi Yatak Secildi!");
+				    $player->sendMessage($this->prefix."Â§6KURULUM TAMAMLANDÄ°.Ä°YÄ° EYLENCELER...");
 				    break;
 			}
 		 }
@@ -422,8 +422,8 @@ class BedWars extends PluginBase implements Listener{
 				    $this->config->setNested("BedWars.$this->game.Settings.lobbypos",$pos);
 					$this->config->save();
 					$this->mode++;
-					$player->sendMessage($this->prefix."§6Lobbypos Seçildi!");
-					$player->sendMessage($this->prefix."§a�?imdi KırmızıTAKIM alanını seç.");
+					$player->sendMessage($this->prefix."Â§6Lobbypos SeÃ§ildi!");
+					$player->sendMessage($this->prefix."Â§aï¿½?imdi KÄ±rmÄ±zÄ±TAKIM alanÄ±nÄ± seÃ§.");
 					break;				
 			        case 2:
 				    $pos=[
@@ -434,8 +434,8 @@ class BedWars extends PluginBase implements Listener{
 				    $this->config->setNested("BedWars.$this->game.Settings.redteampos",$pos);
 					$this->config->save();
 					$this->mode++;
-					$player->sendMessage($this->prefix."§cKırmızıTakım Seçildi!");
-					$player->sendMessage($this->prefix."§a�?imdi SarıTakım alanını seç.");
+					$player->sendMessage($this->prefix."Â§cKÄ±rmÄ±zÄ±TakÄ±m SeÃ§ildi!");
+					$player->sendMessage($this->prefix."Â§aï¿½?imdi SarÄ±TakÄ±m alanÄ±nÄ± seÃ§.");
 					break;
 				case 3:
 				    $pos=[
@@ -446,8 +446,8 @@ class BedWars extends PluginBase implements Listener{
 				    $this->config->setNested("BedWars.$this->game.Settings.yellowteampos",$pos);
 					$this->config->save();
 					$this->mode++;
-					$player->sendMessage($this->prefix."§eSarıTakım Seçildi!");
-					$player->sendMessage($this->prefix."§a�?imdi MaviTAKIM alanını seç.");
+					$player->sendMessage($this->prefix."Â§eSarÄ±TakÄ±m SeÃ§ildi!");
+					$player->sendMessage($this->prefix."Â§aï¿½?imdi MaviTAKIM alanÄ±nÄ± seÃ§.");
 					break;
 				case 4:
 				    $pos=[
@@ -458,8 +458,8 @@ class BedWars extends PluginBase implements Listener{
 				    $this->config->setNested("BedWars.$this->game.Settings.blueteampos",$pos);
 					$this->config->save();
 					$this->mode++;
-					$player->sendMessage($this->prefix."§9blueteampos Seçildi!");
-					$player->sendMessage($this->prefix."§a�?imdi greenteampos alanını seç.");
+					$player->sendMessage($this->prefix."Â§9blueteampos SeÃ§ildi!");
+					$player->sendMessage($this->prefix."Â§aï¿½?imdi greenteampos alanÄ±nÄ± seÃ§.");
 					break;
 				case 5:
 				    $pos=[
@@ -470,8 +470,8 @@ class BedWars extends PluginBase implements Listener{
 				    $this->config->setNested("BedWars.$this->game.Settings.greenteampos",$pos);
 					$this->config->save();
 					$this->mode++;
-					$player->sendMessage($this->prefix."§agreenteampos Seçildi!");
-					$player->sendMessage($this->prefix."§a�?imdi spectatorpos alanını seç.");
+					$player->sendMessage($this->prefix."Â§agreenteampos SeÃ§ildi!");
+					$player->sendMessage($this->prefix."Â§aï¿½?imdi spectatorpos alanÄ±nÄ± seÃ§.");
 					break;
 				case 6:
 				    $pos=[
@@ -482,8 +482,8 @@ class BedWars extends PluginBase implements Listener{
 				    $this->config->setNested("BedWars.$this->game.Settings.spectatorpos",$pos);
 					$this->config->save();
 					$this->mode++;
-					$player->sendMessage($this->prefix."§dİzleyiciPos Seçildi!");
-					$player->sendMessage($this->prefix."§aKurulum tamamlandı! �?imdi Bedwarsın tadını çıkar : /bw katıl");
+					$player->sendMessage($this->prefix."Â§dÄ°zleyiciPos SeÃ§ildi!");
+					$player->sendMessage($this->prefix."Â§aKurulum tamamlandÄ±! ï¿½?imdi BedwarsÄ±n tadÄ±nÄ± Ã§Ä±kar : /bw katÄ±l");
 					$this->create=0;
 					$this->mode=0;
 					break;
@@ -503,7 +503,7 @@ class BedWars extends PluginBase implements Listener{
 					if ($player->getLevel()->getBlockIdAt($x, $y, $z) != 54) {
 					$player->getLevel()->setBlock(new Vector3($x, $y, $z), Block::get(54));
                                         $chest = new Chest($player->getLevel()->getChunk($x >> 4, $z >> 4, true), new CompoundTag(false, array(new IntTag("x", $x), new IntTag("y", $y), new IntTag("z", $z), new StringTag("id", Tile::CHEST))));
-					$chest->setName($this->prefix."§a Market");
+					$chest->setName($this->prefix."Â§a Market");
 			                $player->getLevel()->addTile($chest);
 					}else{
 				   $chest2=$player->getLevel()->getTile(new Vector3($x, $y, $z));
@@ -516,7 +516,7 @@ class BedWars extends PluginBase implements Listener{
                         $chest2->setItem($slot, Item::get($items[$i], 0, 1));
                     }
                         $player->addWindow($chest2);
-                        $villager->setNameTag("§aMarket");
+                        $villager->setNameTag("Â§aMarket");
                         }
 			}
 		}
@@ -547,50 +547,50 @@ class BedWars extends PluginBase implements Listener{
                              if($text[0]=="BedWars"){
                                  if($text[1]=="Bed"){
                                      if($text[2]=="Red"){
-                                         if($p->getNameTag()=="§c[RED]".$pn){
+                                         if($p->getNameTag()=="Â§c[RED]".$pn){
 						return;
 					 }
                                          $this->config->setNested("BedWars.$game.Settings.Alive.Red", "destroyed");
                                          foreach($this->players[$game] as $pl){
                                              $player=$this->getServer()->getPlayer($pl["id"]);
-                                             $player->sendMessage($this->prefix."§cKirmizi takimin yatagi yok edildi!");
+                                             $player->sendMessage($this->prefix."Â§cKirmizi takimin yatagi yok edildi!");
                                          }
-                                         $p->sendMessage($this->prefix."§dTebrikler yatak yokettin! +200 Level");
+                                         $p->sendMessage($this->prefix."Â§dTebrikler yatak yokettin! +200 Level");
                                          $p->setExpLevel($p->getExpLevel() + 200);
                                      }elseif($text[2]=="Blue"){
-                                         if($p->getNameTag()=="§9[BLUE]".$pn){
+                                         if($p->getNameTag()=="Â§9[BLUE]".$pn){
 						return true;
 					 }
                                          $this->config->setNested("BedWars.$game.Settings.Alive.Blue", "destroyed");
                                          foreach($this->players[$game] as $pl){
                                              $player=$this->getServer()->getPlayer($pl["id"]);
-                                             $player->sendMessage($this->prefix."§9Mavi takimin yatagi yok edildi!");
+                                             $player->sendMessage($this->prefix."Â§9Mavi takimin yatagi yok edildi!");
                                          }
-                                         $p->sendMessage($this->prefix."§dTebrikler yatak yokettin! +200 Level");
+                                         $p->sendMessage($this->prefix."Â§dTebrikler yatak yokettin! +200 Level");
                                          $p->setExpLevel($p->getExpLevel() + 200);
                                      }
                                      elseif($text[2]=="Green"){
-                                         if($p->getNameTag()=="§a[GREEN]".$pn){
+                                         if($p->getNameTag()=="Â§a[GREEN]".$pn){
 						return true;
 					 }
                                          $this->config->setNested("BedWars.$game.Settings.Alive.Green", "destroyed");
                                          foreach($this->players[$game] as $pl){
                                              $player=$this->getServer()->getPlayer($pl["id"]);
-                                             $player->sendMessage($this->prefix."§aYesil takimin yatagi yok edildi!");
+                                             $player->sendMessage($this->prefix."Â§aYesil takimin yatagi yok edildi!");
                                          }
-                                         $p->sendMessage($this->prefix."§dTebrikler yatak yokettin! +200 Level");
+                                         $p->sendMessage($this->prefix."Â§dTebrikler yatak yokettin! +200 Level");
                                          $p->setExpLevel($p->getExpLevel() + 200);
                                      }
                                      elseif($text[2]=="Yellow"){
-                                         if($p->getNameTag()=="§e[YELLOW]".$pn){
+                                         if($p->getNameTag()=="Â§e[YELLOW]".$pn){
 						return true;
 					 }
                                          $this->config->setNested("BedWars.$game.Settings.Alive.Yellow", "destroyed");
                                          foreach($this->players[$game] as $pl){
                                              $player=$this->getServer()->getPlayer($pl["id"]);
-                                             $player->sendMessage($this->prefix."§eSari takimin yatagi yok edildi!");
+                                             $player->sendMessage($this->prefix."Â§eSari takimin yatagi yok edildi!");
                                          }
-                                         $p->sendMessage($this->prefix."§dTebrikler yatak yokettin! +200 Level");
+                                         $p->sendMessage($this->prefix."Â§dTebrikler yatak yokettin! +200 Level");
                                          $p->setExpLevel($p->getExpLevel() + 200);
                                      }
                                  }
@@ -617,7 +617,7 @@ class BedWars extends PluginBase implements Listener{
         	    $entity=$event->getPlayer();
         	    $tag=$entity->getNameTag();
             $cause=$event->getEntity()->getLastDamageCause();
-            if(strpos("�9", $tag)){
+            if(strpos("§9", $tag)){
             	
             }
             if($cause instanceof EntityDamageByEntityEvent){
@@ -628,7 +628,7 @@ class BedWars extends PluginBase implements Listener{
                     foreach($levelplayers as $player){
                         $pn=$p->getName();
                         $dn=$damager->getName();
-                        $player->sendMessage($this->prefix."§a$dn §e$pn"."'yi §coldurdu!");
+                        $player->sendMessage($this->prefix."Â§a$dn Â§e$pn"."'yi Â§coldurdu!");
                     }
                 }
             }
@@ -641,22 +641,22 @@ class BedWars extends PluginBase implements Listener{
                 $name=$p->getName();
                 $map=$this->config->getNested("BedWars.$game.Settings.blueteampos")["level"];
                 $level=$this->getServer()->getLevelByName($map);
-                if($tag=="�9[MAVI]$name"){
+                if($tag=="§9[MAVI]$name"){
                     $cfg=$this->config->getNested("BedWars.$game.Settings.blueteampos");
                     $pos=new Position($cfg["blueteampos_x"], $cfg["blueteampos_y"], $cfg["blueteampos_z"], $level);
                     $event->setRespawnPosition($pos);
                 }
-                if($tag=="§c[KIRMIZI]$name"){
+                if($tag=="Â§c[KIRMIZI]$name"){
                     $cfg=$this->config->getNested("BedWars.$game.Settings.redteampos");
                     $pos=new Position($cfg["redteampos_x"], $cfg["redteampos_y"], $cfg["redteampos_z"], $level);
                     $event->setRespawnPosition($pos);
                 }
-                if($tag=="�e[SARI]$name"){
+                if($tag=="§e[SARI]$name"){
                     $cfg=$this->config->getNested("BedWars.$game.Settings.yellowteampos");
                     $pos=new Position($cfg["yellowteampos_x"], $cfg["yellowteampos_y"], $cfg["yellowteampos_z"], $level);
                     $event->setRespawnPosition($pos);
                 }
-                if($tag=="�a[YESIL]$name"){
+                if($tag=="§a[YESIL]$name"){
                     $cfg=$this->config->getNested("BedWars.$game.Settings.greenteampos");
                     $pos=new Position($cfg["greenteampos_x"], $cfg["greenteampos_y"], $cfg["greenteampos_z"], $level);
                     $event->setRespawnPosition($pos);
@@ -729,7 +729,7 @@ class BedWars extends PluginBase implements Listener{
                                     if($exp>=$para){
                                         $Player->getInventory()->addItem(Item::get($item, $damage, $adet));
                                         $Player->setExpLevel($exp - $para);
-                                        $Player->sendPopup("�eEsya Satin alindi!");
+                                        $Player->sendPopup("§eEsya Satin alindi!");
                                     }
                                 }
                             }
@@ -756,26 +756,26 @@ class BedWars extends PluginBase implements Listener{
                         $event->setCancelled(true);
                         $p->getLevel()->removeEntity($item);
 			 $p->setExpLevel($p->getExpLevel() + 5);
-                        $p->sendPopUp("§a+5 Level!\n\n");
+                        $p->sendPopUp("Â§a+5 Level!\n\n");
 		    }
 		    if($event->getItem()->getItem()->getID()==Item::GOLD_INGOT){
                         $event->setCancelled(true);
                         $p->getLevel()->removeEntity($item);
 			$p->setExpLevel($p->getExpLevel() + 10);
-                        $p->sendPopUp("§a+10 Level!\n\n");
+                        $p->sendPopUp("Â§a+10 Level!\n\n");
 		    }
 		    if($event->getItem()->getItem()->getID()==Item::BRICK){
                         $event->setCancelled(true);
                         $p->getLevel()->removeEntity($item);
 			$p->setExpLevel($p->getExpLevel() + 1);
-                        $p->sendPopup("§a+1 Level!\n\n");
+                        $p->sendPopup("Â§a+1 Level!\n\n");
 		    }
       }
 	}
         
     public function OnDisable(){
-        $this->getServer()->getLogger()->info("§8[§cBed§fWars§8]§c Plugin Deaktifleştirildi");
-        $this->getServer()->getLogger()->info("§7Y�kledi�in i�in Te�eskk�rler :) #EmreTr1");
+        $this->getServer()->getLogger()->info("Â§8[Â§cBedÂ§fWarsÂ§8]Â§c Plugin DeaktifleÅŸtirildi");
+        $this->getServer()->getLogger()->info("Â§7Yï¿½klediï¿½in iï¿½in Teï¿½eskkï¿½rler :) #EmreTr1");
     }
 }
 
@@ -787,7 +787,7 @@ class GameTask extends PluginTask{
     public $Inow=1;
     public $Gnow=1;
     public $saniye=30;
-    public $prefix = "§8[§4Bed§fWars§8]";
+    public $prefix = "Â§8[Â§4BedÂ§fWarsÂ§8]";
     public $rbed="[+]";
     public $ybed="[+]";
     public $gbed="[+]";
@@ -806,7 +806,7 @@ class GameTask extends PluginTask{
 			foreach($this->players[$game] as $pl){
 				$p=$this->main->getServer()->getPlayer($pl["id"]);
 				$p->sendTip($this->prefix);
-				$p->sendPopUp("§6Oyuncular bekleniyor...");
+				$p->sendPopUp("Â§6Oyuncular bekleniyor...");
 				}
                         }
 				if(count($this->players[$game])>=0){
@@ -814,7 +814,7 @@ class GameTask extends PluginTask{
 					$p=$this->main->getServer()->getPlayer($pl["id"]);
 					$this->saniye--;
 					if($this->saniye>0){
-					$p->sendPopUp("§f> §6Başlamasına " .$this->saniye."§f <\n      §8[§4Bed§fWars§8]");
+					$p->sendPopUp("Â§f> Â§6BaÅŸlamasÄ±na " .$this->saniye."Â§f <\n      Â§8[Â§4BedÂ§fWarsÂ§8]");
 					}
 				if($this->saniye<=5 and $this->saniye>=-1){
 					$x=$p->x;
@@ -823,7 +823,7 @@ class GameTask extends PluginTask{
 					$p->getLevel()->addSound(new PopSound($p));
 					$p->getLevel()->addParticle(new LargeExplodeParticle(new Vector3($x, $y, $z)));
 					if($this->saniye==0){
-						$p->sendMessage($this->prefix."§aOyun Başladı!!");
+						$p->sendMessage($this->prefix."Â§aOyun BaÅŸladÄ±!!");
                                                 $this->main->config->setNested("BedWars.$game.Settings.Alive.Red", "notdestroy");
                                                 $this->main->config->setNested("BedWars.$game.Settings.Alive.Green", "notdestroy");
                                                 $this->main->config->setNested("BedWars.$game.Settings.Alive.Yellow", "notdestroy");
@@ -839,13 +839,13 @@ class GameTask extends PluginTask{
 				 $p=$this->main->getServer()->getPlayer($pl["id"]);
 				 $tag=$p->getNameTag();
 				 $name=$p->getName();
-				 if($tag=="�9[MAVI]$name"){
+				 if($tag=="§9[MAVI]$name"){
 				 	 $teams["Blue"]++;
-				 }elseif($tag=="�a[YESIL]$name"){
+				 }elseif($tag=="§a[YESIL]$name"){
 				 	$teams["Green"]++;
-				 }elseif($tag=="�e[SARI]$name"){
+				 }elseif($tag=="§e[SARI]$name"){
 				 	$teams["Yellow"]++;
-				 }elseif($tag=="�c[KIRMIZI]$name"){
+				 }elseif($tag=="§c[KIRMIZI]$name"){
 				 	$teams["Red"]++;
 				 }
                                 if($this->main->config->getNested("BedWars.$game.Settings.Alive.Red")=="destroyed"){
@@ -864,7 +864,7 @@ class GameTask extends PluginTask{
    $gr=$teams["Green"];
    $ye=$teams["Yellow"];
    $bl=$teams["Blue"];*/
-				$p->sendPopUp("§4Red ".$this->rbed." §aGreen ".$this->gbed." §eYellow ".$this->ybed." §9Blue ".$this->bbed);
+				$p->sendPopUp("Â§4Red ".$this->rbed." Â§aGreen ".$this->gbed." Â§eYellow ".$this->ybed." Â§9Blue ".$this->bbed);
 	               	################
                 ### SPAWNERS ###
                 ################
@@ -915,44 +915,44 @@ class GameTask extends PluginTask{
                         }
                 }
                 if($this->bbed=="-" and $this->ybed=="-" and $this->gbed=="-"){
-                	 $p->sendMessage($this->prefix."�f�l*****************************\n\n
-                	 �a�l  Oyun Bitti!\n
-                	 �c�l  Kirmizi Takim Kazandi!\n\n
-                	 �f�l*****************************");
+                	 $p->sendMessage($this->prefix."§f§l*****************************\n\n
+                	 §a§l  Oyun Bitti!\n
+                	 §c§l  Kirmizi Takim Kazandi!\n\n
+                	 §f§l*****************************");
                 	 $p->getInventory()->clearAll();
                 	 $spawn=$this->main->getServer()->getDefaultLevel()->getSafeSpawn();
                 	 $p->teleport($spawn);
-                	 $p->sendPopup("�bTwitter: @MineDogsPE");
+                	 $p->sendPopup("§bTwitter: @MineDogsPE");
                 	 $this->main->getServer()->getScheduler()->cancelTask($this->getTaskId());
                 }elseif($this->rbed=="-" and $this->ybed=="-" and $this->gbed=="-"){
-                	 $p->sendMessage($this->prefix."�f�l*****************************\n\n
-                	 �a�l  Oyun Bitti!\n
-                	 �9�l  Mavi Takim Kazandi!\n\n
-                	 �f�l*****************************");
+                	 $p->sendMessage($this->prefix."§f§l*****************************\n\n
+                	 §a§l  Oyun Bitti!\n
+                	 §9§l  Mavi Takim Kazandi!\n\n
+                	 §f§l*****************************");
                 	 $p->getInventory()->clearAll();
                 	 $spawn=$this->main->getServer()->getDefaultLevel()->getSafeSpawn();
                 	 $p->teleport($spawn);
-                	 $p->sendPopup("�bTwitter: @MineDogsPE");
+                	 $p->sendPopup("§bTwitter: @MineDogsPE");
                 	 $this->main->getServer()->getScheduler()->cancelTask($this->getTaskId());
                 }elseif($this->bbed=="-" and $this->rbed=="-" and $this->gbed=="-"){
-                	 $p->sendMessage($this->prefix."�f�l*****************************\n\n
-                	 �a�l  Oyun Bitti!\n
-                	 �e�l  Sari Takim Kazandi!\n\n
-                	 �f�l*****************************");
+                	 $p->sendMessage($this->prefix."§f§l*****************************\n\n
+                	 §a§l  Oyun Bitti!\n
+                	 §e§l  Sari Takim Kazandi!\n\n
+                	 §f§l*****************************");
                 	 $p->getInventory()->clearAll();
                 	 $spawn=$this->main->getServer()->getDefaultLevel()->getSafeSpawn();
                 	 $p->teleport($spawn);
-                	 $p->sendPopup("�bTwitter: @MineDogsPE");
+                	 $p->sendPopup("§bTwitter: @MineDogsPE");
                 	 $this->main->getServer()->getScheduler()->cancelTask($this->getTaskId());
                 }elseif($this->bbed=="-" and $this->ybed=="-" and $this->rbed=="-"){
-                	 $p->sendMessage($this->prefix."�f�l*****************************\n\n
-                	 �a�l  Oyun Bitti!\n
-                	 �2�l  Yesil Takim Kazandi!\n\n
-                	 �f�l*****************************");
+                	 $p->sendMessage($this->prefix."§f§l*****************************\n\n
+                	 §a§l  Oyun Bitti!\n
+                	 §2§l  Yesil Takim Kazandi!\n\n
+                	 §f§l*****************************");
                 	 $p->getInventory()->clearAll();
                 	 $spawn=$this->main->getServer()->getDefaultLevel()->getSafeSpawn();
                 	 $p->teleport($spawn);
-                	 $p->sendPopup("�bTwitter: @MineDogsPE");
+                	 $p->sendPopup("§bTwitter: @MineDogsPE");
                 	 $this->main->getServer()->getScheduler()->cancelTask($this->getTaskId());
                 }
      }
