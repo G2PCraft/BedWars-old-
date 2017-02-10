@@ -157,7 +157,7 @@ class BedWars extends PluginBase implements Listener{
             $sender->sendMessage("Â§6TÃ¼m Komutlar:");
             $sender->sendMessage("Â§d- /bw start :Â§e Oyunu BaÅŸlatÄ±r(Adminler Ä°Ã§in)");
             $sender->sendMessage("Â§b- /bw join :Â§e BedWarsa KatÄ±lÄ±nÄ±lÄ±r.");
-            $sender->sendMessage(TextFormat::GOLD."- /bw lobby :" .TextFormat::YELLOW. "Lobbye Ä°sinlar.");
+            $sender->sendMessage("Â§b- /bw lobby :Lobbye Ä°sinlar.");
             $sender->sendMessage("Â§b- /bw create :Â§eOyun Kurar.");
             $sender->sendMessage("Â§6Â©==================================Â©");
             break;   
